@@ -43,3 +43,5 @@ gem "pry-debugger"
 gem "debugger"
 gem "hirb"
 gem "awesome_print"
+
+gem 'devise'

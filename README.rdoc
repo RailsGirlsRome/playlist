@@ -280,3 +280,20 @@ vendor
 == Create the database
 sudo -u postgres createuser -P my_playlist
 sudo -u postgres createdb -O my_playlist -E utf8 my_playlist
+
+== Setup Devise
+rails generate devise:install
+rails generate devise User
+
+* add username attribute to User, validating presence and uniqueness
+* generate views, add username field to signup form
+  > rails g devise:views
+* remove 'recoverable' devise option since we don't want to deal with email right now.
+* remove 'recoverable' columns and indices from migration
+* rake db:migrate
+* go to /users/sign_up
+* run console
+  > rails c
+  > User.all
+
+
