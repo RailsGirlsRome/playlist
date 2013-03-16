@@ -45,3 +45,4 @@ gem "hirb"
 gem "awesome_print"
 
 gem 'devise'
+gem 'paperclip'

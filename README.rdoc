@@ -297,3 +297,11 @@ rails generate devise User
   > User.all
 
 == Create playlist resource
+  * show all playlists on index
+  * show single playlist, linked from index
+
+== Create song resource
+  * add 'paperclip' to gems
+  * rails g resource song
+  * add attachment columns to song
+    t.attachment :file

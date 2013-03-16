@@ -32,6 +32,10 @@ GEM
     awesome_print (1.1.0)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -71,6 +75,12 @@ GEM
     mime-types (1.21)
     multi_json (1.6.1)
     orm_adapter (0.4.0)
+    paperclip (3.4.1)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
     pg (0.14.1)
     polyglot (0.3.3)
     pry (0.9.12)
@@ -144,6 +154,7 @@ DEPENDENCIES
   devise
   hirb
   jquery-rails
+  paperclip
   pg
   pry-debugger
   pry-doc
