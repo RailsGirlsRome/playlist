@@ -1,7 +1,6 @@
 development:
   adapter: postgresql
   database: my_playlist
-  username: my_playlist
-  password: my_playlist
+  username: rails
   pool: 5
   timeout: 5000
