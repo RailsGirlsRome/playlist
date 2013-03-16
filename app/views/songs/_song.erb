@@ -1,1 +1,8 @@
-<li><%= song.file.original_filename %></li>
+<li>
+  <div>
+    <audio src="<%= song.file.url %>" controls preload="auto" autobuffer />
+  </div>
+  <div>
+    <%= song.file.original_filename %>
+  </div>
+</li>
