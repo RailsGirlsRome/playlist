@@ -1,0 +1,19 @@
+
+               ***     ***
+             **   ** **   **
+            *       *       *
+            *               *
+             *             *
+              **         **
+                **     **
+                  ** **
+                    *
+ ____       _ _        ____ _      _
+|  _ \ __ _(_) |___   / ___(_)_ __| |___
+| |_) / _` | | / __| | |  _| | '__| / __|
+|  _ < (_| | | \__ \ | |_| | | |  | \__ \
+|_| \_\__,_|_|_|___/  \____|_|_|  |_|___/
+
+---------------------------------------------
+Use this README file to introduce your application and point to useful places in the API for learning more.
+Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
