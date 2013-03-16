@@ -276,3 +276,7 @@ vendor
   External libraries that the application depends on. Also includes the plugins
   subdirectory. If the app has frozen rails, those gems also go here, under
   vendor/rails/. This directory is in the load path.
+
+== Create the database
+sudo -u postgres createuser -P my_playlist
+sudo -u postgres createdb -O my_playlist -E utf8 my_playlist
