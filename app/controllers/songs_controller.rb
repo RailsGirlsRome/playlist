@@ -5,7 +5,7 @@ class SongsController < ApplicationController
   def create
     @song = @playlist.songs.new(params[:song])
     if @song.save
-      flash[:notice] = "Add song to playlist."
+      flash[:notice] = "Added song to playlist."
     else
       flash[:alert] = "There was a problem saving the song."
     end
