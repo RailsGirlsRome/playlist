@@ -6,8 +6,7 @@
   </ul>
 <% end %>
 
-<%# check if we have permission to modify the playlist %>
-<% if @playlist.user == current_user %>
+<% if @playlist.can_modify?(current_user) %>
   <h1>upload a song</h1>
   <%= form_for([ @playlist, @playlist.songs.build ], :html => { :multipart => true }) do |form| %>
     <%= form.file_field :file %>

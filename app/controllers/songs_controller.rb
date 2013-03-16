@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
-  before_filter :find_playlist, :only => :create
+  before_filter :find_playlist
+  before_filter :find_song,     :only => :destroy
 
   def create
     @song = @playlist.songs.new(params[:song])
@@ -11,9 +12,19 @@ class SongsController < ApplicationController
     redirect_to(playlist_path(@song.playlist))
   end
 
+  def destroy
+    @song.destroy
+    flash[:notice] = "Removed song from playlist."
+    redirect_to(playlist_path(@song.playlist))
+  end
+
   protected
 
     def find_playlist
       @playlist = Playlist.find(params[:playlist_id])
+    end
+
+    def find_song
+      @song = @playlist.songs.find(params[:id])
     end
 end

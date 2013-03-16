@@ -4,5 +4,8 @@
   </div>
   <div>
     <%= song.file.original_filename %>
+    <% if song.playlist.can_modify?(current_user) %>
+      [ <%= link_to('delete', playlist_song_path(song.playlist, song), :method => "delete") %> ]
+    <% end %>
   </div>
 </li>
