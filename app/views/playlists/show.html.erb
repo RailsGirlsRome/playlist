@@ -1,1 +1,16 @@
-<h1><%= @playlist.user.username %>'s playlist</h1>
+<h1><%= @playlist.user.username %>'s playlist (<%= pluralize(@playlist.songs.count, 'song') %>)</h1>
+
+<% unless @playlist.songs.empty? %>
+  <ul>
+    <%= render(@playlist.songs) %>
+  </ul>
+<% end %>
+
+<%# check if we have permission to modify the playlist %>
+<% if @playlist.user == current_user %>
+  <h1>upload a song</h1>
+  <%= form_for([ @playlist, @playlist.songs.build ], :html => { :multipart => true }) do |form| %>
+    <%= form.file_field :file %>
+    <%= form.submit 'upload' %>
+  <% end %>
+<% end %>

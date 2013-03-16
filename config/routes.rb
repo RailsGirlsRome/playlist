@@ -1,10 +1,9 @@
 MyPlaylist::Application.routes.draw do
 
-  resources :songs
-
-
   devise_for :users
-  resources :playlists
+  resources :playlists do
+    resources :songs
+  end
   root :to => "playlists#index"
 
   # The priority is based upon order of creation:

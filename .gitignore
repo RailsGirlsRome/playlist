@@ -17,3 +17,4 @@
 .*.sw?
 .DS_Store
 
+public/system
