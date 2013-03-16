@@ -296,4 +296,4 @@ rails generate devise User
   > rails c
   > User.all
 
-
+== Create playlist resource
