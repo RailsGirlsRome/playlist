@@ -75,3 +75,16 @@ rails generate devise User
   * add migration to add row_order to songs
   * add update action to songs
   * add js to sort table rows
+
+== Push to Heroku
+  * heroku apps:create rgr13-myplaylist-<developer name>
+  * bundle exec rake config:heroku:s3
+  * ssh keygen -t rsa
+  * heroku keys:add ~/.ssh/id_rsa.pub
+  * git push heroku master
+
+== IMPROVEMENTS
+  * rename title of song
+  * allow only mp3s to be uploaded
+  * use id3 tags from mp3s
+  * upload progress
