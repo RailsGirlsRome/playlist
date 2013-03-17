@@ -51,6 +51,12 @@ rails generate devise User
 == Add Bootstrap
   * add bootstrap-sass to Gemfile
   * require bootstrap in application.js
-  @ rename application.css to application.css.scss
+  * rename application.css to application.css.scss
   * add app/assets/stylesheets/bootstrap_and_overrides.css.scss
   * @import bootstrap in this new file
+
+== Save songs to Amazon S3
+  * add aws-sdk to Gemfile
+  * create config/s3.yml.erb to read credentials from ENV
+  * configure paperclip in app/models/song.rb
+  * bucket: rgr13-playlist
