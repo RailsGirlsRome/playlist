@@ -11,6 +11,23 @@
       <div class="navbar navbar-static-top">
         <div class="navbar-inner">
           <%= link_to("My Playlist", root_path, :class => "brand") %>
+          <ul class="nav pull-right">
+            <% if current_user %>
+              <li class="dropdown">
+                <%= link_to("#", :class => "dropdown-toggle", :data => { :toggle => "dropdown" }) do %>
+                  <%= current_user.username %>
+                  <b class="caret"></b>
+                <% end %>
+                <ul class="dropdown-menu">
+                  <li><%= link_to("Playlist", playlist_path(current_user.playlist)) %></li>
+                  <li><%= link_to("Sign Out", destroy_user_session_path, :method => :delete) %></li>
+                </ul>
+              </li>
+            <% else %>
+              <li><%= link_to("Sign In", new_user_session_path) %></li>
+              <li><%= link_to("Sign Up", new_user_registration_path) %></li>
+            <% end %>
+          </ul>
         </div>
       </div>
     </header>
