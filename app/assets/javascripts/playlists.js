@@ -7,6 +7,7 @@ function setSongPositions() {
 $(window).ready(function() {
   setSongPositions($("#playlist-songs"));
   $("#playlist-songs").sortable({
+    axis: 'y',
     items: 'tr',
     update: function(event, ui) {
       $.post(ui.item.data('update-url'), {
