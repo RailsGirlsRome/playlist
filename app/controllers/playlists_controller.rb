@@ -12,6 +12,6 @@ class PlaylistsController < ApplicationController
   protected
 
     def find_playlist
-      @playlist = Playlist.find(params[:id])
+      @playlist = Playlist.by_param(params[:id])
     end
 end

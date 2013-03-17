@@ -1,7 +1,7 @@
 MyPlaylist::Application.routes.draw do
 
   devise_for :users
-  resources :playlists do
+  resources :playlists, :constraints => { :id => User.valid_username } do
     resources :songs
   end
   root :to => "playlists#index"

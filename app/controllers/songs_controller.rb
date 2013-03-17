@@ -21,7 +21,7 @@ class SongsController < ApplicationController
   protected
 
     def find_playlist
-      @playlist = Playlist.find(params[:playlist_id])
+      @playlist = Playlist.by_param(params[:playlist_id])
     end
 
     def find_song

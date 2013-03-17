@@ -60,3 +60,9 @@ rails generate devise User
   * create config/s3.yml.erb to read credentials from ENV
   * configure paperclip in app/models/song.rb
   * bucket: rgr13-playlist
+  * path
+
+== Pretty URLs
+  * validate format of username
+  * define to_param in playlist model
+  * add constraint to playlist route
