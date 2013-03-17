@@ -1,6 +1,6 @@
-<tr>
+<tr data-update-url="<%= playlist_song_path(@playlist, song) %>">
   <td>
-    <h2><%= @playlist.songs.index(song) + 1 %>.</h2>
+    <h2><span class="position"></span>.</h2>
   </td>
   <td>
     <audio src="<%= song.file.url %>" controls preload="auto" autobuffer />

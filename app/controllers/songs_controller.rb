@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_filter :find_playlist
-  before_filter :find_song,     :only => :destroy
+  before_filter :find_song, :only => [ :update, :destroy ]
 
   def create
     @song = @playlist.songs.new(params[:song])
@@ -10,6 +10,11 @@ class SongsController < ApplicationController
       flash[:alert] = "There was a problem saving the song."
     end
     redirect_to(playlist_path(@song.playlist))
+  end
+
+  def update
+    @song.update_attributes(params[:song])
+    render :nothing => true
   end
 
   def destroy

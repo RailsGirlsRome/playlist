@@ -66,3 +66,12 @@ rails generate devise User
   * validate format of username
   * define to_param in playlist model
   * add constraint to playlist route
+
+== Re-order songs
+  * add ranked-model to Gemfile
+  * add jquery-ui-rails
+  * require jquery.ui.sortable in application.js
+  * add to songs
+  * add migration to add row_order to songs
+  * add update action to songs
+  * add js to sort table rows

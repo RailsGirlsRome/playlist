@@ -11,7 +11,7 @@
   </p>
 <% else %>
   <table id="playlist-songs" class="table table-striped">
-    <%= render(@playlist.songs) %>
+    <%= render(@playlist.songs.rank(:row_order)) %>
   </table>
 <% end %>
 
