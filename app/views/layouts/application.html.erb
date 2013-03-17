@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MyPlaylist</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>MyPlaylist</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <div class="navbar navbar-static-top">
+        <div class="navbar-inner">
+          <%= link_to("My Playlist", root_path, :class => "brand") %>
+        </div>
+      </div>
+    </header>
+    <div id="main">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span12">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
