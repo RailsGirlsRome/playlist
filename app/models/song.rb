@@ -4,7 +4,8 @@ class Song < ActiveRecord::Base
 
   attr_accessible :file, :row_order_position
 
-  belongs_to :playlist
+  belongs_to :playlist, :touch => true
+
   has_attached_file :file, {
     :storage        => :s3,
     :s3_credentials => YAML.load(ERB.new(File.read(Rails.root + 'config/s3.yml.erb')).result(binding)),
