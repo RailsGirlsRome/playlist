@@ -1,1 +1,5 @@
-<li><%= link_to(playlist.user.username, playlist_path(playlist)) %></li>
+<tr>
+  <td><%= link_to(playlist.user.username, playlist_path(playlist)) %></td>
+  <td><%= playlist.songs.count %></td>
+  <td><%= l(playlist.updated_at, :format => :day_words) %></td>
+</tr>
