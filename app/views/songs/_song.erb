@@ -1,11 +1,19 @@
-<li>
-  <div>
+<tr>
+  <td>
+    <h2><%= @playlist.songs.index(song) + 1 %>.</h2>
+  </td>
+  <td>
     <audio src="<%= song.file.url %>" controls preload="auto" autobuffer />
-  </div>
-  <div>
+  </td>
+  <td>
     <%= song.file.original_filename %>
-    <% if song.playlist.can_modify?(current_user) %>
-      [ <%= link_to('delete', playlist_song_path(song.playlist, song), :method => "delete") %> ]
-    <% end %>
+  </td>
+  <% if song.playlist.can_modify?(current_user) %>
+    <td>
+      <%= link_to(playlist_song_path(song.playlist, song), :method => "delete", :confirm => "Are you sure you want to delete #{song.file.original_filename}?") do %>
+        <button type="button" class="btn btn-danger"><i class="icon-trash"></i> Delete</button>
+      <% end %>
+    </td>
+  <% end %>
   </div>
 </li>
