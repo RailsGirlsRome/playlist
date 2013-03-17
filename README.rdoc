@@ -89,3 +89,5 @@ rails generate devise User
   * use id3 tags from mp3s
   * upload progress
   * Javascript to automatically start next song/prevent two songs from playing at once
+  * order playlists by last update
+  * paginate playlists
