@@ -88,3 +88,4 @@ rails generate devise User
   * allow only mp3s to be uploaded
   * use id3 tags from mp3s
   * upload progress
+  * Javascript to automatically start next song/prevent two songs from playing at once
