@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+  before_filter :authenticate_user!
+
   before_filter :find_playlist
   before_filter :find_song, :only => [ :update, :destroy ]
 

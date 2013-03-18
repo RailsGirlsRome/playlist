@@ -8,7 +8,7 @@ $(window).ready(function() {
 
   setSongPositions();
 
-  $("#playlist-songs").sortable({
+  $("#playlist-songs.sortable").sortable({
     axis: 'y',
     items: 'tr',
     handle: '.drag',

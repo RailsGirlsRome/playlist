@@ -1,7 +1,9 @@
 <tr data-update-url="<%= playlist_song_path(@playlist, song) %>">
-  <td>
-    <i class="drag icon-th"></i>
-  </td>
+  <% if song.playlist.can_modify?(current_user) %>
+    <td>
+      <i class="drag icon-th"></i>
+    </td>
+  <% end %>
   <td>
     <h2><span class="position"></span>.</h2>
   </td>

@@ -10,7 +10,7 @@
     There are no songs here.
   </p>
 <% else %>
-  <table id="playlist-songs" class="table table-striped">
+  <table id="playlist-songs" class="table table-striped <%= (@playlist.can_modify?(current_user) ? 'sortable' : '') %>">
     <%= render(@playlist.songs.rank(:row_order)) %>
   </table>
 <% end %>
