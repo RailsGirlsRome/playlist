@@ -1,6 +1,6 @@
 development:
-  adapter: postgresql
-  database: my_playlist
-  username: rails
+  adapter: sqlite3
+  database: db/my_playlist.sqlite3
   pool: 5
   timeout: 5000
+
