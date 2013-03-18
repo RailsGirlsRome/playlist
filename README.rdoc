@@ -34,7 +34,7 @@ rails generate devise User
 * go to /users/sign_up
 * run console
     rails c
-    User.all`
+    User.all
 
 == Create playlist resource
 
