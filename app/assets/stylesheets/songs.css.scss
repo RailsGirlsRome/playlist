@@ -2,9 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#playlist-songs {
+table#playlist-songs {
   td {
     vertical-align: middle;
     border: none;
+    i.drag {
+      cursor: move;
+    }
   }
 }

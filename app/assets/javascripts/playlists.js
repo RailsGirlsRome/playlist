@@ -5,10 +5,14 @@ function setSongPositions() {
 }
 
 $(window).ready(function() {
-  setSongPositions($("#playlist-songs"));
+
+  setSongPositions();
+
   $("#playlist-songs").sortable({
     axis: 'y',
     items: 'tr',
+    handle: '.drag',
+    cursor: 'move',
     update: function(event, ui) {
       $.post(ui.item.data('update-url'), {
         _method: 'PUT',
