@@ -10,23 +10,23 @@
     <header>
       <div class="navbar navbar-static-top">
         <div class="navbar-inner">
-          <%= link_to("Home", root_path, :class => "brand") %>
+          <%# link to root url %>
           <ul class="nav pull-right">
-            <% if current_user %>
+            <%# if the user is logged-in %>
               <li class="dropdown">
                 <%= link_to("#", :class => "dropdown-toggle", :data => { :toggle => "dropdown" }) do %>
-                  <%= current_user.username %>
+                  <%# show the user name %>
                   <b class="caret"></b>
                 <% end %>
                 <ul class="dropdown-menu">
-                  <li><%= link_to("Playlist", playlist_path(current_user.playlist)) %></li>
-                  <li><%= link_to("Sign Out", destroy_user_session_path, :method => :delete) %></li>
+                  <li><%# link to the user's playlist  %></li>
+                  <li><%# link to sign-out %></li>
                 </ul>
               </li>
-            <% else %>
-              <li><%= link_to("Sign In", new_user_session_path) %></li>
-              <li><%= link_to("Sign Up", new_user_registration_path) %></li>
-            <% end %>
+            <%# if the user is not logged-in %>
+              <li><%# link to sign-in %></li>
+              <li><%# link to sign-up %></li>
+            <%# end %>
           </ul>
         </div>
       </div>
@@ -35,19 +35,19 @@
       <div class="container-fluid">
         <div class="row-fluid">
           <div class="span12">
-            <% if flash[:notice] %>
+            <%# if a notice is preset %>
               <div class="flash alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <%= flash[:notice] %>
+                <%# show the notice %>
               </div>
-            <% end %>
+            <%# end %>
 
-            <% if flash[:alert] %>
+            <%# if an alert is present %>
               <div class="flash alert alert-error">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <%= flash[:alert] %>
+                <%# show the alert %>
               </div>
-            <% end %>
+            <%# end %>
 
             <%= yield %>
           </div>

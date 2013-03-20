@@ -1,30 +1,31 @@
 <div class="page-header">
   <h2>
-    <%= @playlist.user.username %>
-    <small><%= pluralize(@playlist.songs.count, 'Song') %></small>
+    <%# display the username of the playlist %>
+    <small><%# display the number of songs in the playlist %></small>
   </h2>
 </div>
 
-<% if @playlist.songs.empty? %>
+<%# if there are no songs in the playlist %>
   <p class="muted">
     There are no songs here.
   </p>
-<% else %>
-  <table id="playlist-songs" class="table table-striped <%= (@playlist.can_modify?(current_user) ? 'sortable' : '') %>">
-    <%= render(@playlist.songs.rank(:row_order)) %>
+<%# if the playlist has songs %>
+  <%# show the songs in a table. if it's the user's playlist, it should be drag-and-drop sortable %>
+  <table id="playlist-songs" class="table table-striped">
+    <%# the songs go here %>
   </table>
-<% end %>
+<%# end %>
 
-<% if @playlist.can_modify?(current_user) %>
+<%# show a form for uploading songs if this is the user's playlist %>
   <div class="span6">
-    <%= form_for([ @playlist, @playlist.songs.build ], :html => { :multipart => true, :class => "form-horizontal" }) do |form| %>
+    <%# the form starts here. a song is a child-resource of a playlist. since we're uploading files: multipart %>
       <legend>
         Upload a Song
       </legend>
       <div class="control-group">
-        <%= form.label :file, :class => "control-label" %>
+        <%# add a label for the file %>
         <div class="controls">
-          <%= form.file_field :file %>
+          <%# show the file input here %>
         </div>
       </div>
 
@@ -34,6 +35,6 @@
           <button type="submit" class="btn btn-primary">Upload</button>
         </div>
       </div>
-    <% end %>
-  <% end %>
-</div>
+    <%# end %>
+  </div>
+<%# end %>

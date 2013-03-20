@@ -1,24 +1,25 @@
-<tr data-update-url="<%= playlist_song_path(@playlist, song) %>">
-  <% if song.playlist.can_modify?(current_user) %>
+<tr data-update-url="<%# this is the url for drag-and-drop sorting %>">
+  <%# show a drag-and-drop control if this is the user's playlist %>
     <td>
       <i class="drag icon-th"></i>
     </td>
-  <% end %>
+  <%# end %>
   <td>
     <h2><span class="position"></span>.</h2>
   </td>
   <td>
-    <audio src="<%= song.file.url %>" controls preload="auto" autobuffer />
+    <%# "audio" is a very cool HTML5 tag %>
+    <audio src="<%# this is the url of the song %>" controls preload="auto" autobuffer />
   </td>
   <td>
-    <%= song.file.original_filename %>
+    <%# show the filename of the song %>
   </td>
-  <% if song.playlist.can_modify?(current_user) %>
+  <%# if this is the user's playlist %>
     <td>
-      <%= link_to(playlist_song_path(song.playlist, song), :method => "delete", :confirm => "Are you sure you want to delete #{song.file.original_filename}?") do %>
+      <%# this is where to put a link to delete the song, with a javascript confirmation %>
         <button type="button" class="btn btn-danger"><i class="icon-trash"></i> Delete</button>
-      <% end %>
+      <%# end %>
     </td>
-  <% end %>
+  <%# end %>
   </div>
 </li>
