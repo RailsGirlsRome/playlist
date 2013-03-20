@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require jquery.ui.sortable
+//= require namespace
 //= require_tree .
