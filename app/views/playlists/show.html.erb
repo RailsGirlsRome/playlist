@@ -16,22 +16,24 @@
 <% end %>
 
 <% if @playlist.can_modify?(current_user) %>
-  <hr />
-  <%= form_for([ @playlist, @playlist.songs.build ], :html => { :multipart => true, :class => "form-horizontal" }) do |form| %>
-    <legend>
-      Upload a Song
-    </legend>
-    <div class="control-group">
-      <%= form.label :file, :class => "control-label" %>
-      <div class="controls">
-        <%= form.file_field :file %>
+  <div class="span6">
+    <%= form_for([ @playlist, @playlist.songs.build ], :html => { :multipart => true, :class => "form-horizontal" }) do |form| %>
+      <legend>
+        Upload a Song
+      </legend>
+      <div class="control-group">
+        <%= form.label :file, :class => "control-label" %>
+        <div class="controls">
+          <%= form.file_field :file %>
+        </div>
       </div>
-    </div>
 
-    <div clas="control-group">
-      <div class="controls">
-        <button type="submit" class="btn btn-primary">Upload</button>
+      <div clas="control-group">
+        <div class="controls">
+          <div class="upload-progress"></div>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
