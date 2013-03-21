@@ -1,4 +1,6 @@
 MyPlaylist::Application.routes.draw do
+  devise_for :users
+
   resources :playlists
 
   root :to => "playlists#index"
