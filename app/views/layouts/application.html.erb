@@ -13,6 +13,7 @@
           <%# link to root url %>
           <ul class="nav pull-right">
             <%# if the user is logged-in %>
+              <!--
               <li class="dropdown">
                 <%= link_to("#", :class => "dropdown-toggle", :data => { :toggle => "dropdown" }) do %>
                   <%# show the user name %>
@@ -23,9 +24,12 @@
                   <li><%# link to sign-out %></li>
                 </ul>
               </li>
+              -->
             <%# if the user is not logged-in %>
+              <!--
               <li><%# link to sign-in %></li>
               <li><%# link to sign-up %></li>
+              -->
             <%# end %>
           </ul>
         </div>
@@ -36,17 +40,21 @@
         <div class="row-fluid">
           <div class="span12">
             <%# if a notice is preset %>
+              <!--
               <div class="flash alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <%# show the notice %>
               </div>
+              -->
             <%# end %>
 
             <%# if an alert is present %>
+              <!--
               <div class="flash alert alert-error">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <%# show the alert %>
               </div>
+              -->
             <%# end %>
 
             <%= yield %>
