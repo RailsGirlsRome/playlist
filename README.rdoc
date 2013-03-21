@@ -18,6 +18,25 @@
 
 == Welcome to the Playlist Rails Girls app!
 
+In this app, users can sign up to create a playlist by uploading mp3 files. Any visitor to the
+site can view all of the playlists, browse around, and listen to music.
+
+== Step 1: Make a Root Page
+* rails g controller playlists
+* add playlist routes
+* see routes with rake routes
+* go to /playslists
+* set root url to playslists index
+* add link to 'Home' in layout
+
+== Step 2: Create Users
+* rails g devise:install
+* rails g devise User
+* look at new User model; remove 'recoverable' module -- don't want to setup email
+* look at the create_users migration; comment out 'recoverable' columns and index on reset_password_token
+* add a string column for 'username' and add a unique index for this column
+* rake db:migrate
+
 Work in progress below...
 
 == Setup Devise
