@@ -37,6 +37,14 @@ site can view all of the playlists, browse around, and listen to music.
 * add a string column for 'username' and add a unique index for this column
 * rake db:migrate
 
+== Step 3: Create Playlists
+* rails g model playlist
+* in Playlist mode: belongs to user
+* in create_playlists migration: belongs to user
+* render playlist partial in index
+* create playlist in rails console
+* reload index page
+
 Work in progress below...
 
 == Setup Devise
