@@ -1,4 +1,4 @@
 class Playlist < ActiveRecord::Base
   belongs_to :user
-  # attr_accessible :title, :body
+  has_many :songs, :dependent => :destroy
 end

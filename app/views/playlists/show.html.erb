@@ -1,20 +1,20 @@
 <div class="page-header">
   <h2>
-    <%# display the username of the playlist %>
+    <%= @playlist.user.username %>
     <small><%# display the number of songs in the playlist %></small>
   </h2>
 </div>
 
-<%# if there are no songs in the playlist %>
+<% if @playlist.songs.empty? %>
   <p class="muted">
     There are no songs here.
   </p>
-<%# if the playlist has songs %>
+<% else %>
   <%# show the songs in a table. if it's the user's playlist, it should be drag-and-drop sortable %>
   <table id="playlist-songs" class="table table-striped">
-    <%# the songs go here %>
+    <%= render(@playlist.songs) %>
   </table>
-<%# end %>
+<% end %>
 
 <%# show a form for uploading songs if this is the user's playlist %>
   <!--

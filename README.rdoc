@@ -55,6 +55,17 @@ site can view all of the playlists, browse around, and listen to music.
 * complete signup
 * view playlist index
 
+== Step 5: Show Playlist Songs
+* create show action
+* link to playlist from username in index
+* rails g model song
+* in song model: has attached file
+* in playlist model: has many songs
+* show username of playlist on playlist page
+* if playlist has songs, render partial
+* write song migration
+* rake db:migrate
+
 Work in progress below...
 
 == Setup Devise
