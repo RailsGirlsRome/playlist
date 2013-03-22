@@ -18,70 +18,99 @@
 
 == Welcome to the Playlist Rails Girls app!
 
-Work in progress below...
+In this app, users can sign up to create a playlist by uploading mp3 files. Any visitor to the
+site can view all of the playlists, browse around, and listen to music.
 
-== Setup Devise
+== Step 1: Make a Root Page
+* rails g controller playlists
+* add playlist routes
+* see routes with rake routes
+* go to /playslists
+* set root url to playslists index
+* add link to 'Home' in layout
 
-rails generate devise:install
-rails generate devise User
-
-* add username attribute to User, validating presence and uniqueness
-* generate views, add username field to signup form
-    rails g devise:views
-* remove 'recoverable' devise option since we don't want to deal with email right now.
-* remove 'recoverable' columns and indices from migration
+== Step 2: Create Users
+* rails g devise:install
+* rails g devise User
+* look at new User model; remove 'recoverable' module -- don't want to setup email
+* look at the create_users migration; comment out 'recoverable' columns and index on reset_password_token
+* add a string column for 'username' and add a unique index for this column
 * rake db:migrate
-* go to /users/sign_up
-* run console
-    rails c
-    User.all
 
-== Create playlist resource
+== Step 3: Create Playlists
+* rails g model playlist
+* in Playlist mode: belongs to user
+* in create_playlists migration: belongs to user
+* render playlist partial in index
+* create playlist in rails console
+* reload index page
 
-* show all playlists on index
-* show single playlist, linked from index
+== Step 4: Associate Users and Playlists
+* register a new user: add a signup link to the layout
+* add username field to signup form
+* add username to attr_accesible in User
+* user has one playlist
+* create playlist on user create
+* show playlist username in playlist partial
+* complete signup
+* view playlist index
 
-== Create song resource
+== Step 5: Show Playlist Songs
+* create show action
+* link to playlist from username in index
+* rails g model song
+* in song model: has attached file
+* in playlist model: has many songs
+* show username of playlist on playlist page
+* if playlist has songs, render partial
+* write song migration
+* rake db:migrate
 
-* add 'paperclip' to gems
-* rails g resource song
-* add attachment columns to song
-     t.attachment :file
+== Step 6: Upload Songs
+* create songs controller
+* song is resource of playlist
+* define create action: before filter to find playlist
+* on playlist show page: if user is playlist owner, render upload form
+* add file to accessible attrs
+* upload an mp3
+* complete song partial
+* show number of songs
 
-== Add Bootstrap
-* add bootstrap-sass to Gemfile
-* require bootstrap in application.js
-* rename application.css to application.css.scss
-* add app/assets/stylesheets/bootstrap_and_overrides.css.scss
-* @import bootstrap in this new file
+== Step 7: Re-order Songs
+* include RankedModel in songs
+* ranks row_order with name playlist_id
+* add row_order_position to accessible attrs
+* rails g migration add_row_order_to_songs
+* rake db:migrate
+* add update action to songs; find song before filter
+* add sortable class to songs table
+* show drag control if user is playlist owner
+* add data-update-url to song table row
+* update playlist show page to rank songs
 
-== Save songs to Amazon S3
-* add aws-sdk to Gemfile
-* create config/s3.yml.erb to read credentials from ENV
-* configure paperclip in app/models/song.rb
-* bucket: rgr13-playlist
-* path: virtual machine username
+== Step 8: User Sign In/Out
+* update application layout
 
-== Pretty URLs
-* validate format of username
-* define to_param in playlist model
-* add constraint to playlist route
+== Step 9: Delete Songs
+* define destroy action: redirect to playlist show after destroy
+* add to find_song before_filter
 
-== Re-order songs
-* add ranked-model to Gemfile
-* add jquery-ui-rails
-* require jquery.ui.sortable in application.js
-* add to songs
-* add migration to add row_order to songs
-* add update action to songs
-* add js to sort table rows
+== Step 10: Tighten Up
+* show flash messages
+* add # songs to playlists index
+* link to user's playlist in dropdown
+* touch playlist when songs saved for 'last modified' display
+* validate playlist has user
+* validate song has playlist
+* validate song has attached file
 
-== Push to Heroku
-* heroku apps:create rgr13-myplaylist-<developer name>
-* bundle exec rake config:heroku:s3
-* ssh keygen -t rsa
-* heroku keys:add ~/.ssh/id_rsa.pub
-* git push heroku master
+== Step 11: Pretty Playlist URLs
+* at to_param and from_param to playlist
+* find playlist by param in playlists and songs controller
+* add contraint to routes
+
+== Step 12: Deploy
+* store song files on S3 in production
 
 == IMPROVEMENTS
 * rename title of song
