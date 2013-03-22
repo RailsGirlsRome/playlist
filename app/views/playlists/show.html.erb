@@ -1,7 +1,7 @@
 <div class="page-header">
   <h2>
     <%= @playlist.user.username %>
-    <small><%# display the number of songs in the playlist %></small>
+    <small><%= pluralize(@playlist.songs.count, 'song') %></small>
   </h2>
 </div>
 
@@ -16,17 +16,16 @@
   </table>
 <% end %>
 
-<%# show a form for uploading songs if this is the user's playlist %>
-  <!--
+<% if @playlist.is_owner?(current_user) %>
   <div class="span6">
-    <%# the form starts here. a song is a child-resource of a playlist. since we're uploading files: multipart %>
+    <%= form_for([ @playlist, @playlist.songs.build ], :html => { :multipart => true, :class => "form-horizontal" }) do |form| %>
       <legend>
         Upload a Song
       </legend>
       <div class="control-group">
-        <%# add a label for the file %>
+        <%= form.label :file, :class => "control-label" %>
         <div class="controls">
-          <%# show the file input here %>
+          <%= form.file_field :file %>
         </div>
       </div>
 
@@ -36,7 +35,6 @@
           <button type="submit" class="btn btn-primary">Upload</button>
         </div>
       </div>
-    <%# end %>
+    <% end %>
   </div>
-  -->
-<%# end %>
+<% end %>

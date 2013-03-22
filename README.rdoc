@@ -66,6 +66,15 @@ site can view all of the playlists, browse around, and listen to music.
 * write song migration
 * rake db:migrate
 
+== Step 6: Upload Songs
+* create songs controller
+* song is resource of playlist
+* define create action: before filter to find playlist
+* on playlist show page: if user is playlist owner, render upload form
+* add file to accessible attrs
+* upload an mp3
+* complete song partial
+
 Work in progress below...
 
 == Setup Devise

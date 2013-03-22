@@ -9,10 +9,10 @@
   </td>
   <td>
     <%# "audio" is a very cool HTML5 tag %>
-    <audio src="<%# this is the url of the song %>" controls preload="auto" autobuffer />
+    <audio src="<%= song.file.url %>" controls preload="auto" autobuffer />
   </td>
   <td>
-    <%# show the filename of the song %>
+    <%= song.file.original_filename %>
   </td>
   <%# if this is the user's playlist %>
     <td>
