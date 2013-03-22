@@ -45,6 +45,16 @@ site can view all of the playlists, browse around, and listen to music.
 * create playlist in rails console
 * reload index page
 
+== Step 4: Associate Users and Playlists
+* register a new user: add a signup link to the layout
+* add username field to signup form
+* add username to attr_accesible in User
+* user has one playlist
+* create playlist on user create
+* show playlist username in playlist partial
+* complete signup
+* view playlist index
+
 Work in progress below...
 
 == Setup Devise
