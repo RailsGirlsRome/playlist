@@ -88,6 +88,9 @@ site can view all of the playlists, browse around, and listen to music.
 * add data-update-url to song table row
 * update playlist show page to rank songs
 
+== Step 8: User Sign In/Out
+* update application layout
+
 Work in progress below...
 
 == Setup Devise

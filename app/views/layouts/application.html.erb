@@ -12,25 +12,21 @@
         <div class="navbar-inner">
           <%= link_to('Home', root_path, :class => 'brand') %>
           <ul class="nav pull-right">
-            <%# if the user is logged-in %>
-              <!--
+            <%if current_user %>
               <li class="dropdown">
                 <%= link_to("#", :class => "dropdown-toggle", :data => { :toggle => "dropdown" }) do %>
-                  <%# show the user name %>
+                  <%= current_user.username %>
                   <b class="caret"></b>
                 <% end %>
                 <ul class="dropdown-menu">
                   <li><%# link to the user's playlist  %></li>
-                  <li><%# link to sign-out %></li>
+                  <li><%= link_to("Sign Out", destroy_user_session_path, :method => :delete) %></li>
                 </ul>
               </li>
-              -->
-            <%# if the user is not logged-in %>
-              <!--
-              <li><%# link to sign-in %></li>
-              -->
+            <% else %>
+              <li><%= link_to("Sign In", new_user_session_path) %></li>
               <li><%= link_to("Sign Up", new_user_registration_path) %></li>
-            <%# end %>
+            <% end %>
           </ul>
         </div>
       </div>
