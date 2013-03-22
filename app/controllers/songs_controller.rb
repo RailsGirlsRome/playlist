@@ -4,6 +4,7 @@ class SongsController < ApplicationController
 
   def create
     @playlist.songs.create(params[:song])
+    flash[:notice] = "Added song to playlist."
     render :nothing => true
   end
 
@@ -14,6 +15,7 @@ class SongsController < ApplicationController
 
   def destroy
     @song.destroy
+    flash[:notice] = "Deleted song."
     redirect_to playlist_path(@song.playlist)
   end
 

@@ -19,7 +19,7 @@
                   <b class="caret"></b>
                 <% end %>
                 <ul class="dropdown-menu">
-                  <li><%# link to the user's playlist  %></li>
+                  <li><%= link_to("Playlist", playlist_path(current_user.playlist)) %></li>
                   <li><%= link_to("Sign Out", destroy_user_session_path, :method => :delete) %></li>
                 </ul>
               </li>
@@ -35,23 +35,19 @@
       <div class="container-fluid">
         <div class="row-fluid">
           <div class="span12">
-            <%# if a notice is preset %>
-              <!--
+            <% if flash[:notice] %>
               <div class="flash alert alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <%# show the notice %>
+                <%= flash[:notice] %>
               </div>
-              -->
-            <%# end %>
+            <% end %>
 
-            <%# if an alert is present %>
-              <!--
+            <% if flash[:alert] %>
               <div class="flash alert alert-error">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <%# show the alert %>
+                <%= flash[:alert] %>
               </div>
-              -->
-            <%# end %>
+            <% end %>
 
             <%= yield %>
           </div>
