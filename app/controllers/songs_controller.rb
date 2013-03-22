@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   before_filter :find_playlist
-  before_filter :find_song, :only => :update
+  before_filter :find_song, :only => [ :update, :destroy ]
 
   def create
     @playlist.songs.create(params[:song])
@@ -10,6 +10,11 @@ class SongsController < ApplicationController
   def update
     @song.update_attributes(params[:song])
     render :nothing => true
+  end
+
+  def destroy
+    @song.destroy
+    redirect_to playlist_path(@song.playlist)
   end
 
   protected

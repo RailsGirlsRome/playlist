@@ -14,12 +14,12 @@
   <td>
     <%= song.file.original_filename %>
   </td>
-  <%# if this is the user's playlist %>
+  <% if song.playlist.is_owner?(current_user) %>
     <td>
-      <%# this is where to put a link to delete the song, with a javascript confirmation %>
+      <%= link_to(playlist_song_path(song.playlist, song), :method => :delete, :confirm => "Are you sure you want to delete #{song.file.original_filename}?") do %>
         <button type="button" class="btn btn-danger"><i class="icon-trash"></i> Delete</button>
-      <%# end %>
+      <% end %>
     </td>
-  <%# end %>
+  <% end %>
   </div>
 </li>
