@@ -10,9 +10,8 @@
     There are no songs here.
   </p>
 <% else %>
-  <%# show the songs in a table. if it's the user's playlist, it should be drag-and-drop sortable %>
-  <table id="playlist-songs" class="table table-striped">
-    <%= render(@playlist.songs) %>
+  <table id="playlist-songs" class="table table-striped <%= @playlist.is_owner?(current_user) ? 'sortable' : '' %>">
+    <%= render(@playlist.songs.rank(:row_order)) %>
   </table>
 <% end %>
 

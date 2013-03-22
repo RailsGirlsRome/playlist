@@ -74,6 +74,19 @@ site can view all of the playlists, browse around, and listen to music.
 * add file to accessible attrs
 * upload an mp3
 * complete song partial
+* show number of songs
+
+== Step 7: Re-order Songs
+* include RankedModel in songs
+* ranks row_order with name playlist_id
+* add row_order_position to accessible attrs
+* rails g migration add_row_order_to_songs
+* rake db:migrate
+* add update action to songs; find song before filter
+* add sortable class to songs table
+* show drag control if user is playlist owner
+* add data-update-url to song table row
+* update playlist show page to rank songs
 
 Work in progress below...
 

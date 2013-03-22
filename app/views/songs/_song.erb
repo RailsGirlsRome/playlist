@@ -1,9 +1,9 @@
-<tr data-update-url="<%# this is the url for drag-and-drop sorting %>">
-  <%# show a drag-and-drop control if this is the user's playlist %>
+<tr data-update-url="<%= playlist_song_path(song.playlist, song) %>">
+  <% if @playlist.is_owner?(current_user) %>
     <td>
       <i class="drag icon-th"></i>
     </td>
-  <%# end %>
+  <% end %>
   <td>
     <h2><span class="position"></span>.</h2>
   </td>
