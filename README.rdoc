@@ -91,6 +91,27 @@ site can view all of the playlists, browse around, and listen to music.
 == Step 8: User Sign In/Out
 * update application layout
 
+== Step 9: Delete Songs
+* define destroy action: redirect to playlist show after destroy
+* add to find_song before_filter
+
+== Step 10: Tighten Up
+* show flash messages
+* add # songs to playlists index
+* link to user's playlist in dropdown
+* touch playlist when songs saved for 'last modified' display
+* validate playlist has user
+* validate song has playlist
+* validate song has attached file
+
+== Step 11: Pretty Playlist URLs
+* at to_param and from_param to playlist
+* find playlist by param in playlists and songs controller
+* add contraint to routes
+
+== Step 12: Deploy
+* store song files on S3 in production
+
 Work in progress below...
 
 == Setup Devise
