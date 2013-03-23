@@ -20,5 +20,5 @@ class Song < ActiveRecord::Base
   validates :playlist_id, :presence => true
   validates_attachment :file, :presence => true
 
-  ranks :row_order, :with_name => :playlist_id
+  ranks :row_order, :with_same => :playlist_id
 end
